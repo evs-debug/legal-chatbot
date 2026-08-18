@@ -1,229 +1,400 @@
 [
   {
     "article_number": "12",
-    "title": "Definition",
+    "clause": "12",
+    "title": "Definition of the State",
     "part": "Part III - Fundamental Rights",
     "text": "In this Part, unless the context otherwise requires, 'the State' includes the Government and Parliament of India and the Government and the Legislature of each of the States and all local or other authorities within the territory of India or under the control of the Government of India."
   },
   {
     "article_number": "13",
-    "title": "Laws inconsistent with or in derogation of the fundamental rights",
+    "clause": "13(1)",
+    "title": "Laws inconsistent with or in derogation of fundamental rights - Pre-constitutional laws",
     "part": "Part III - Fundamental Rights",
-    "text": "All laws in force in the territory of India immediately before the commencement of this Constitution, in so far as they are inconsistent with the provisions of this Part, shall, to the extent of such inconsistency, be void. The State shall not make any law which takes away or abridges the rights conferred by this Part and any law made in contravention of this clause shall, to the extent of the contravention, be void."
+    "text": "All laws in force in the territory of India immediately before the commencement of this Constitution, in so far as they are inconsistent with the provisions of this Part, shall, to the extent of such inconsistency, be void."
+  },
+  {
+    "article_number": "13",
+    "clause": "13(2)",
+    "title": "Laws inconsistent with or in derogation of fundamental rights - Post-constitutional laws",
+    "part": "Part III - Fundamental Rights",
+    "text": "The State shall not make any law which takes away or abridges the rights conferred by this Part and any law made in contravention of this clause shall, to the extent of the contravention, be void."
   },
   {
     "article_number": "14",
-    "title": "Equality before law",
+    "clause": "14",
+    "title": "Equality before law and equal protection of laws",
     "part": "Part III - Fundamental Rights",
     "text": "The State shall not deny to any person equality before the law or the equal protection of the laws within the territory of India."
   },
   {
     "article_number": "15",
-    "title": "Prohibition of discrimination on grounds of religion, race, caste, sex or place of birth",
+    "clause": "15(1)",
+    "title": "Prohibition of discrimination - Non-discrimination by the State",
     "part": "Part III - Fundamental Rights",
-    "text": "The State shall not discriminate against any citizen on grounds only of religion, race, caste, sex, place of birth or any of them. No citizen shall, on grounds only of religion, race, caste, sex, place of birth or any of them, be subject to any disability, liability, restriction or condition with regard to access to shops, public restaurants, hotels and places of public entertainment, or the use of wells, tanks, bathing ghats, roads and places of public resort maintained wholly or partly out of State funds or dedicated to the use of the general public."
+    "text": "The State shall not discriminate against any citizen on grounds only of religion, race, caste, sex, place of birth or any of them."
+  },
+  {
+    "article_number": "15",
+    "clause": "15(2)",
+    "title": "Prohibition of discrimination - Equal access to public places",
+    "part": "Part III - Fundamental Rights",
+    "text": "No citizen shall, on grounds only of religion, race, caste, sex, place of birth or any of them, be subject to any disability, liability, restriction or condition with regard to access to shops, public restaurants, hotels and places of public entertainment; or the use of wells, tanks, bathing ghats, roads and places of public resort maintained wholly or partly out of State funds or dedicated to the use of the general public."
   },
   {
     "article_number": "16",
-    "title": "Equality of opportunity in matters of public employment",
+    "clause": "16(1)",
+    "title": "Equality of opportunity in public employment - General rule",
     "part": "Part III - Fundamental Rights",
-    "text": "There shall be equality of opportunity for all citizens in matters relating to employment or appointment to any office under the State. No citizen shall, on grounds only of religion, race, caste, sex, descent, place of birth, residence or any of them, be ineligible for, or discriminated against in respect of, any employment or office under the State."
+    "text": "There shall be equality of opportunity for all citizens in matters relating to employment or appointment to any office under the State."
+  },
+  {
+    "article_number": "16",
+    "clause": "16(2)",
+    "title": "Equality of opportunity in public employment - Non-discrimination",
+    "part": "Part III - Fundamental Rights",
+    "text": "No citizen shall, on grounds only of religion, race, caste, sex, descent, place of birth, residence or any of them, be ineligible for, or discriminated against in respect of, any employment or office under the State."
   },
   {
     "article_number": "17",
+    "clause": "17",
     "title": "Abolition of Untouchability",
     "part": "Part III - Fundamental Rights",
     "text": "'Untouchability' is abolished and its practice in any form is forbidden. The enforcement of any disability arising out of 'Untouchability' shall be an offence punishable in accordance with law."
   },
   {
     "article_number": "18",
-    "title": "Abolition of titles",
+    "clause": "18(1)",
+    "title": "Abolition of titles - State prohibition",
     "part": "Part III - Fundamental Rights",
-    "text": "No title, not being a military or academic distinction, shall be conferred by the State. No citizen of India shall accept any title from any foreign State."
+    "text": "No title, not being a military or academic distinction, shall be conferred by the State."
+  },
+  {
+    "article_number": "18",
+    "clause": "18(2)",
+    "title": "Abolition of titles - Foreign titles prohibition",
+    "part": "Part III - Fundamental Rights",
+    "text": "No citizen of India shall accept any title from any foreign State."
   },
   {
     "article_number": "19",
-    "title": "Protection of certain rights regarding freedom of speech, etc.",
+    "clause": "19(1)(a)",
+    "title": "Right to freedom of speech and expression",
     "part": "Part III - Fundamental Rights",
-    "text": "All citizens shall have the right to freedom of speech and expression; to assemble peaceably and without arms; to form associations or unions or co-operative societies; to move freely throughout the territory of India; to reside and settle in any part of the territory of India; and to practise any profession, or to carry on any occupation, trade or business."
+    "text": "All citizens shall have the right to freedom of speech and expression."
+  },
+  {
+    "article_number": "19",
+    "clause": "19(1)(b)",
+    "title": "Right to assemble peaceably and without arms",
+    "part": "Part III - Fundamental Rights",
+    "text": "All citizens shall have the right to assemble peaceably and without arms."
+  },
+  {
+    "article_number": "19",
+    "clause": "19(1)(c)",
+    "title": "Right to form associations, unions, or co-operative societies",
+    "part": "Part III - Fundamental Rights",
+    "text": "All citizens shall have the right to form associations or unions or co-operative societies."
+  },
+  {
+    "article_number": "19",
+    "clause": "19(1)(d)",
+    "title": "Right to move freely throughout the territory of India",
+    "part": "Part III - Fundamental Rights",
+    "text": "All citizens shall have the right to move freely throughout the territory of India."
+  },
+  {
+    "article_number": "19",
+    "clause": "19(1)(e)",
+    "title": "Right to reside and settle in any part of India",
+    "part": "Part III - Fundamental Rights",
+    "text": "All citizens shall have the right to reside and settle in any part of the territory of India."
+  },
+  {
+    "article_number": "19",
+    "clause": "19(1)(g)",
+    "title": "Right to practise any profession, or carry on trade or business",
+    "part": "Part III - Fundamental Rights",
+    "text": "All citizens shall have the right to practise any profession, or to carry on any occupation, trade or business."
   },
   {
     "article_number": "20",
-    "title": "Protection in respect of conviction for offences",
+    "clause": "20(1)",
+    "title": "Protection in respect of conviction - Protection against ex post facto laws",
     "part": "Part III - Fundamental Rights",
-    "text": "No person shall be convicted of any offence except for violation of a law in force at the time of the commission of the act charged as an offence, nor be subjected to a penalty greater than that which might have been inflicted under the law in force at the time of the commission of the offence. No person shall be prosecuted and punished for the same offence more than once. No person accused of any offence shall be compelled to be a witness against himself."
+    "text": "No person shall be convicted of any offence except for violation of a law in force at the time of the commission of the act charged as an offence, nor be subjected to a penalty greater than that which might have been inflicted under the law in force at the time of the commission of the offence."
+  },
+  {
+    "article_number": "20",
+    "clause": "20(2)",
+    "title": "Protection in respect of conviction - Protection against double jeopardy",
+    "part": "Part III - Fundamental Rights",
+    "text": "No person shall be prosecuted and punished for the same offence more than once."
+  },
+  {
+    "article_number": "20",
+    "clause": "20(3)",
+    "title": "Protection in respect of conviction - Protection against self-incrimination",
+    "part": "Part III - Fundamental Rights",
+    "text": "No person accused of any offence shall be compelled to be a witness against himself."
   },
   {
     "article_number": "21",
+    "clause": "21",
     "title": "Protection of life and personal liberty",
     "part": "Part III - Fundamental Rights",
     "text": "No person shall be deprived of his life or personal liberty except according to procedure established by law."
   },
   {
     "article_number": "21A",
+    "clause": "21A",
     "title": "Right to education",
     "part": "Part III - Fundamental Rights",
     "text": "The State shall provide free and compulsory education to all children of the age of six to fourteen years in such manner as the State may, by law, determine."
   },
   {
     "article_number": "22",
-    "title": "Protection against arrest and detention in certain cases",
+    "clause": "22(1)",
+    "title": "Protection against arrest - Right to grounds of arrest and legal counsel",
     "part": "Part III - Fundamental Rights",
     "text": "No person who is arrested shall be detained in custody without being informed, as soon as may be, of the grounds for such arrest nor shall he be denied the right to consult, and to be defended by, a legal practitioner of his choice."
   },
   {
+    "article_number": "22",
+    "clause": "22(2)",
+    "title": "Protection against arrest - Right to production before magistrate within 24 hours",
+    "part": "Part III - Fundamental Rights",
+    "text": "Every person who is arrested and detained in custody shall be produced before the nearest magistrate within a period of twenty-four hours of such arrest excluding the time necessary for the journey from the place of arrest to the court of the magistrate and no such person shall be detained in custody beyond the said period without the authority of a magistrate."
+  },
+  {
     "article_number": "23",
+    "clause": "23(1)",
     "title": "Prohibition of traffic in human beings and forced labour",
     "part": "Part III - Fundamental Rights",
     "text": "Traffic in human beings and beggar and other similar forms of forced labour are prohibited and any contravention of this provision shall be an offence punishable in accordance with law."
   },
   {
     "article_number": "24",
-    "title": "Prohibition of employment of children in factories, etc.",
+    "clause": "24",
+    "title": "Prohibition of employment of children in factories and hazardous work",
     "part": "Part III - Fundamental Rights",
     "text": "No child below the age of fourteen years shall be employed to work in any factory or mine or engaged in any other hazardous employment."
   },
   {
     "article_number": "25",
-    "title": "Freedom of conscience and free profession, practice and propagation of religion",
+    "clause": "25(1)",
+    "title": "Freedom of conscience and right to profess, practise and propagate religion",
     "part": "Part III - Fundamental Rights",
     "text": "Subject to public order, morality and health and to the other provisions of this Part, all persons are equally entitled to freedom of conscience and the right freely to profess, practise and propagate religion."
   },
   {
     "article_number": "26",
+    "clause": "26",
     "title": "Freedom to manage religious affairs",
     "part": "Part III - Fundamental Rights",
     "text": "Subject to public order, morality and health, every religious denomination or any section thereof shall have the right to establish and maintain institutions for religious and charitable purposes; to manage its own affairs in matters of religion; to own and acquire movable and immovable property; and to administer such property in accordance with law."
   },
   {
     "article_number": "27",
+    "clause": "27",
     "title": "Freedom as to payment of taxes for promotion of any particular religion",
     "part": "Part III - Fundamental Rights",
     "text": "No person shall be compelled to pay any taxes, the proceeds of which are specifically appropriated in payment of expenses for the promotion or maintenance of any particular religion or religious denomination."
   },
   {
     "article_number": "28",
-    "title": "Freedom as to attendance at religious instruction or religious worship in certain educational institutions",
+    "clause": "28(1)",
+    "title": "Freedom as to religious instruction in State-funded educational institutions",
     "part": "Part III - Fundamental Rights",
     "text": "No religious instruction shall be provided in any educational institution wholly maintained out of State funds."
   },
   {
     "article_number": "29",
-    "title": "Protection of interests of minorities",
+    "clause": "29(1)",
+    "title": "Protection of minorities - Right to conserve distinct language, script or culture",
     "part": "Part III - Fundamental Rights",
     "text": "Any section of the citizens residing in the territory of India or any part thereof having a distinct language, script or culture of its own shall have the right to conserve the same."
   },
   {
+    "article_number": "29",
+    "clause": "29(2)",
+    "title": "Protection of minorities - Non-discrimination in educational institution admissions",
+    "part": "Part III - Fundamental Rights",
+    "text": "No citizen shall be denied admission into any educational institution maintained by the State or receiving aid out of State funds on grounds only of religion, race, caste, language or any of them."
+  },
+  {
     "article_number": "30",
+    "clause": "30(1)",
     "title": "Right of minorities to establish and administer educational institutions",
     "part": "Part III - Fundamental Rights",
     "text": "All minorities, whether based on religion or language, shall have the right to establish and administer educational institutions of their choice."
   },
   {
     "article_number": "32",
-    "title": "Remedies for enforcement of rights conferred by this Part",
+    "clause": "32(1)",
+    "title": "Remedies for enforcement of rights - Right to move Supreme Court",
     "part": "Part III - Fundamental Rights",
-    "text": "The right to move the Supreme Court by appropriate proceedings for the enforcement of the rights conferred by this Part is guaranteed. The Supreme Court shall have power to issue directions or orders or writs, including writs in the nature of habeas corpus, mandamus, prohibition, quo warranto and certiorari, whichever may be appropriate, for the enforcement of any of the rights conferred by this Part."
+    "text": "The right to move the Supreme Court by appropriate proceedings for the enforcement of the rights conferred by this Part is guaranteed."
+  },
+  {
+    "article_number": "32",
+    "clause": "32(2)",
+    "title": "Remedies for enforcement of rights - Power of Supreme Court to issue writs",
+    "part": "Part III - Fundamental Rights",
+    "text": "The Supreme Court shall have power to issue directions or orders or writs, including writs in the nature of habeas corpus, mandamus, prohibition, quo warranto and certiorari, whichever may be appropriate, for the enforcement of any of the rights conferred by this Part."
   },
   {
     "article_number": "Preamble",
+    "clause": "Preamble",
     "title": "Preamble to the Constitution of India",
     "part": "Preamble",
     "text": "WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC and to secure to all its citizens: JUSTICE, social, economic and political; LIBERTY of thought, expression, belief, faith and worship; EQUALITY of status and of opportunity; and to promote among them all FRATERNITY assuring the dignity of the individual and the unity and integrity of the Nation; IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION."
   },
   {
     "article_number": "39",
-    "title": "Certain principles of policy to be followed by the State",
+    "clause": "39(a)",
+    "title": "Policy principles - Right to adequate means of livelihood",
     "part": "Part IV - Directive Principles of State Policy",
-    "text": "The State shall, in particular, direct its policy towards securing— (a) that the citizens, men and women equally, have the right to an adequate means of livelihood; (b) that the ownership and control of the material resources of the community are so distributed as best to subserve the common good; (c) that the operation of the economic system does not result in the concentration of wealth and means of production to the common detriment; (d) that there is equal pay for equal work for both men and women; (e) that the health and strength of workers, men and women, and the tender age of children are not abused; (f) that children are given opportunities and facilities to develop in a healthy manner and in conditions of freedom and dignity."
+    "text": "The State shall, in particular, direct its policy towards securing that the citizens, men and women equally, have the right to an adequate means of livelihood."
+  },
+  {
+    "article_number": "39",
+    "clause": "39(b)",
+    "title": "Policy principles - Ownership and control of material resources for common good",
+    "part": "Part IV - Directive Principles of State Policy",
+    "text": "The State shall, in particular, direct its policy towards securing that the ownership and control of the material resources of the community are so distributed as best to subserve the common good."
+  },
+  {
+    "article_number": "39",
+    "clause": "39(c)",
+    "title": "Policy principles - Prevention of concentration of wealth",
+    "part": "Part IV - Directive Principles of State Policy",
+    "text": "The State shall, in particular, direct its policy towards securing that the operation of the economic system does not result in the concentration of wealth and means of production to the common detriment."
+  },
+  {
+    "article_number": "39",
+    "clause": "39(d)",
+    "title": "Policy principles - Equal pay for equal work for men and women",
+    "part": "Part IV - Directive Principles of State Policy",
+    "text": "The State shall, in particular, direct its policy towards securing that there is equal pay for equal work for both men and women."
+  },
+  {
+    "article_number": "39",
+    "clause": "39(e)",
+    "title": "Policy principles - Health and strength of workers and protection of children",
+    "part": "Part IV - Directive Principles of State Policy",
+    "text": "The State shall, in particular, direct its policy towards securing that the health and strength of workers, men and women, and the tender age of children are not abused."
+  },
+  {
+    "article_number": "39",
+    "clause": "39(f)",
+    "title": "Policy principles - Healthy development opportunities for children",
+    "part": "Part IV - Directive Principles of State Policy",
+    "text": "The State shall, in particular, direct its policy towards securing that children are given opportunities and facilities to develop in a healthy manner and in conditions of freedom and dignity."
   },
   {
     "article_number": "41",
+    "clause": "41",
     "title": "Right to work, to education and to public assistance in certain cases",
     "part": "Part IV - Directive Principles of State Policy",
     "text": "The State shall, within the limits of its economic capacity and development, make effective provision for securing the right to work, to education and to public assistance in cases of unemployment, old age, sickness and disablement, and in other cases of undeserved want."
   },
   {
     "article_number": "44",
+    "clause": "44",
     "title": "Uniform civil code for the citizens",
     "part": "Part IV - Directive Principles of State Policy",
     "text": "The State shall endeavour to secure for the citizens a Uniform Civil Code throughout the territory of India."
   },
   {
     "article_number": "45",
-    "title": "Provision for early childhood care and education to children below the age of six years",
+    "clause": "45",
+    "title": "Provision for early childhood care and education to children below six years",
     "part": "Part IV - Directive Principles of State Policy",
     "text": "The State shall endeavour to provide early childhood care and education for all children until they complete the age of six years."
   },
   {
     "article_number": "46",
-    "title": "Promotion of educational and economic interests of Scheduled Castes, Scheduled Tribes and other weaker sections",
+    "clause": "46",
+    "title": "Promotion of educational and economic interests of SCs, STs, and weaker sections",
     "part": "Part IV - Directive Principles of State Policy",
     "text": "The State shall promote with special care the educational and economic interests of the weaker sections of the people, and, in particular, of the Scheduled Castes and the Scheduled Tribes, and shall protect them from social injustice and all forms of exploitation."
   },
   {
-    "article_number": "51A(a)",
-    "title": "Abide by the Constitution and respect its ideals and institutions",
+    "article_number": "51A",
+    "clause": "51A(a)",
+    "title": "Fundamental Duty - Abide by Constitution and respect Flag and Anthem",
     "part": "Part IVA - Fundamental Duties",
     "text": "It shall be the duty of every citizen of India to abide by the Constitution and respect its ideals and institutions, the National Flag and the National Anthem."
   },
   {
-    "article_number": "51A(b)",
-    "title": "Cherish and follow the noble ideals of the freedom struggle",
+    "article_number": "51A",
+    "clause": "51A(b)",
+    "title": "Fundamental Duty - Cherish ideals of the freedom struggle",
     "part": "Part IVA - Fundamental Duties",
     "text": "It shall be the duty of every citizen of India to cherish and follow the noble ideals which inspired our national struggle for freedom."
   },
   {
-    "article_number": "51A(c)",
-    "title": "Uphold and protect sovereignty, unity, and integrity of India",
+    "article_number": "51A",
+    "clause": "51A(c)",
+    "title": "Fundamental Duty - Uphold sovereignty, unity, and integrity of India",
     "part": "Part IVA - Fundamental Duties",
     "text": "It shall be the duty of every citizen of India to uphold and protect the sovereignty, unity and integrity of India."
   },
   {
-    "article_number": "51A(d)",
-    "title": "Defend the country and render national service",
+    "article_number": "51A",
+    "clause": "51A(d)",
+    "title": "Fundamental Duty - Defend the country and render national service",
     "part": "Part IVA - Fundamental Duties",
     "text": "It shall be the duty of every citizen of India to defend the country and render national service when called upon to do so."
   },
   {
-    "article_number": "51A(e)",
-    "title": "Promote harmony and spirit of common brotherhood",
+    "article_number": "51A",
+    "clause": "51A(e)",
+    "title": "Fundamental Duty - Promote harmony, brotherhood, and respect dignity of women",
     "part": "Part IVA - Fundamental Duties",
     "text": "It shall be the duty of every citizen of India to promote harmony and the spirit of common brotherhood amongst all the people of India transcending religious, linguistic and regional or sectional diversities; to renounce practices derogatory to the dignity of women."
   },
   {
-    "article_number": "51A(f)",
-    "title": "Value and preserve rich heritage of composite culture",
+    "article_number": "51A",
+    "clause": "51A(f)",
+    "title": "Fundamental Duty - Value and preserve composite culture",
     "part": "Part IVA - Fundamental Duties",
     "text": "It shall be the duty of every citizen of India to value and preserve the rich heritage of our composite culture."
   },
   {
-    "article_number": "51A(g)",
-    "title": "Protect and improve the natural environment",
+    "article_number": "51A",
+    "clause": "51A(g)",
+    "title": "Fundamental Duty - Protect natural environment and show compassion to creatures",
     "part": "Part IVA - Fundamental Duties",
     "text": "It shall be the duty of every citizen of India to protect and improve the natural environment including forests, lakes, rivers and wild life, and to have compassion for living creatures."
   },
   {
-    "article_number": "51A(h)",
-    "title": "Develop scientific temper, humanism, and spirit of inquiry",
+    "article_number": "51A",
+    "clause": "51A(h)",
+    "title": "Fundamental Duty - Develop scientific temper, humanism, and spirit of inquiry",
     "part": "Part IVA - Fundamental Duties",
     "text": "It shall be the duty of every citizen of India to develop the scientific temper, humanism and the spirit of inquiry and reform."
   },
   {
-    "article_number": "51A(i)",
-    "title": "Safeguard public property and abjure violence",
+    "article_number": "51A",
+    "clause": "51A(i)",
+    "title": "Fundamental Duty - Safeguard public property and abjure violence",
     "part": "Part IVA - Fundamental Duties",
     "text": "It shall be the duty of every citizen of India to safeguard public property and to abjure violence."
   },
   {
-    "article_number": "51A(j)",
-    "title": "Strive towards excellence in all spheres of individual and collective activity",
+    "article_number": "51A",
+    "clause": "51A(j)",
+    "title": "Fundamental Duty - Strive towards excellence in all spheres",
     "part": "Part IVA - Fundamental Duties",
     "text": "It shall be the duty of every citizen of India to strive towards excellence in all spheres of individual and collective activity so that the nation constantly rises to higher levels of endeavour and achievement."
   },
   {
-    "article_number": "51A(k)",
-    "title": "Provide opportunities for education to child or ward",
+    "article_number": "51A",
+    "clause": "51A(k)",
+    "title": "Fundamental Duty - Provide educational opportunities for children aged 6 to 14",
     "part": "Part IVA - Fundamental Duties",
     "text": "It shall be the duty of every citizen of India who is a parent or guardian to provide opportunities for education to his child or, as the case may be, ward between the age of six and fourteen years."
   }
