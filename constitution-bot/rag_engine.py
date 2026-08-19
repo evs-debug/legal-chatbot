@@ -49,11 +49,14 @@ If landmark case law is provided in the context and is directly relevant, cite i
 If the context does not contain enough information to answer confidently, state this explicitly and recommend consultation with a qualified legal professional. Do not fabricate legal information or case citations."""
 }
 
-def answer_question(query, mode="simple"):
+def answer_question(query, mode="simple", language="English"):
     results = retrieve(query, top_k=4)
     context = build_context(results)
 
     system_prompt = SYSTEM_PROMPTS.get(mode, SYSTEM_PROMPTS["simple"])
+
+    if language == "Hindi":
+        system_prompt += "\n\nRespond entirely in Hindi (Devanagari script), including all explanations. Keep clause numbers and article numbers in their original English/numeric form (e.g. 'Clause 22(1)'), since these are standard legal references, but everything else must be in Hindi."
 
     user_prompt = f"""Context (relevant constitutional provisions):
 {context}
