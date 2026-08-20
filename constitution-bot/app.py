@@ -1,7 +1,8 @@
 import streamlit as st
-from rag_engine import answer_question
+from rag_engine import answer_question, analyze_document
+from pdf_utils import extract_text_from_pdf
 
-st.set_page_config(page_title="Nyaya Setu", page_icon="⚖️", layout="wide")
+st.set_page_config(page_title="Ordo Juris", page_icon="⚖️", layout="wide")
 
 TEXT = {
     "English": {
@@ -15,6 +16,14 @@ TEXT = {
         "about_text": "Answers are generated using RAG over the Constitution of India (Part III, IV & IVA). This is informational only, not a substitute for professional legal advice.",
         "input_placeholder": "Ask about your constitutional rights...",
         "spinner": "Consulting the Constitution...",
+        "tab_chat": "💬 Ask a Question",
+        "tab_analyzer": "📄 Document Analyzer",
+        "upload_label": "Upload a legal document (PDF)",
+        "upload_help": "e.g. notice, contract, FIR copy, court order, agreement",
+        "analyze_button": "Analyze Document",
+        "analyzing_spinner": "Reading and analyzing your document...",
+        "no_file_warning": "Please upload a PDF first.",
+        "extract_fail": "Could not extract readable text from this PDF. It may be a scanned image without OCR.",
         "examples": [
             "What are my rights if I get arrested?",
             "Do I have the right to free education?",
@@ -35,6 +44,14 @@ TEXT = {
         "about_text": "उत्तर भारत के संविधान (भाग III, IV और IVA) पर आधारित RAG तकनीक से तैयार किए जाते हैं। यह केवल सूचनात्मक है, पेशेवर कानूनी सलाह का विकल्प नहीं है।",
         "input_placeholder": "अपने संवैधानिक अधिकारों के बारे में पूछें...",
         "spinner": "संविधान से परामर्श किया जा रहा है...",
+        "tab_chat": "💬 प्रश्न पूछें",
+        "tab_analyzer": "📄 दस्तावेज़ विश्लेषक",
+        "upload_label": "एक कानूनी दस्तावेज़ अपलोड करें (PDF)",
+        "upload_help": "जैसे नोटिस, अनुबंध, एफआईआर प्रति, अदालत का आदेश",
+        "analyze_button": "दस्तावेज़ का विश्लेषण करें",
+        "analyzing_spinner": "आपके दस्तावेज़ को पढ़ा और विश्लेषण किया जा रहा है...",
+        "no_file_warning": "कृपया पहले एक PDF अपलोड करें।",
+        "extract_fail": "इस PDF से पठनीय टेक्स्ट निकाला नहीं जा सका। यह बिना OCR वाला स्कैन किया गया चित्र हो सकता है।",
         "examples": [
             "गिरफ्तार होने पर मेरे क्या अधिकार हैं?",
             "क्या मुझे मुफ्त शिक्षा का अधिकार है?",
@@ -167,6 +184,48 @@ html, body, .stApp,
     color: var(--brown-bright) !important;
 }
 
+/* Custom tab-switcher buttons (main content area, NOT sidebar) — using Streamlit button type */
+div[data-testid="stMainBlockContainer"] button[data-testid="stBaseButton-primary"] {
+    background: var(--surface) !important;
+    border: 1.5px solid var(--brown) !important;
+    border-bottom: 3px solid var(--brown) !important;
+    border-radius: 10px 10px 4px 4px !important;
+    color: var(--brown) !important;
+    font-weight: 600 !important;
+    font-family: 'Inter', 'Noto Sans Devanagari', sans-serif !important;
+    font-size: 0.95rem !important;
+    padding: 0.6rem 1.2rem !important;
+    box-shadow: none !important;
+}
+div[data-testid="stMainBlockContainer"] button[data-testid="stBaseButton-primary"] p,
+div[data-testid="stMainBlockContainer"] button[data-testid="stBaseButton-primary"] span,
+div[data-testid="stMainBlockContainer"] button[data-testid="stBaseButton-primary"] div {
+    color: var(--brown) !important;
+    font-weight: 600 !important;
+}
+div[data-testid="stMainBlockContainer"] button[data-testid="stBaseButton-secondary"] {
+    background: transparent !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 10px 10px 4px 4px !important;
+    color: var(--ink-muted) !important;
+    font-family: 'Inter', 'Noto Sans Devanagari', sans-serif !important;
+    font-size: 0.95rem !important;
+    padding: 0.6rem 1.2rem !important;
+    box-shadow: none !important;
+}
+div[data-testid="stMainBlockContainer"] button[data-testid="stBaseButton-secondary"] p,
+div[data-testid="stMainBlockContainer"] button[data-testid="stBaseButton-secondary"] span,
+div[data-testid="stMainBlockContainer"] button[data-testid="stBaseButton-secondary"] div {
+    color: var(--ink-muted) !important;
+}
+div[data-testid="stMainBlockContainer"] button[data-testid="stBaseButton-secondary"]:hover {
+    border-color: var(--brown) !important;
+    color: var(--brown) !important;
+}
+div[data-testid="stMainBlockContainer"] button[data-testid="stBaseButton-secondary"]:hover p {
+    color: var(--brown) !important;
+}
+
 [data-testid="stChatInput"],
 [data-testid="stChatInput"] > div,
 [data-testid="stChatInputContainer"],
@@ -205,7 +264,6 @@ div[data-baseweb="radio"] label { color: var(--ink) !important; font-family: 'In
 
 footer, #MainMenu { visibility: hidden; }
 
-/* Fix broken Material Symbols icon text (shows raw names when font fails to load) */
 [data-testid="stSidebarCollapseButton"] span,
 [data-testid="stSidebarCollapseButton"] p,
 [data-testid="baseButton-headerNoPadding"] span,
@@ -235,6 +293,8 @@ if "pending_query" not in st.session_state:
     st.session_state.pending_query = None
 if "ui_language" not in st.session_state:
     st.session_state.ui_language = "English"
+if "active_tab" not in st.session_state:
+    st.session_state.active_tab = "chat"
 
 with st.sidebar:
     st.markdown("### 🌐 Language / भाषा")
@@ -251,7 +311,7 @@ st.markdown(f"""
 <div class="header-wrap">
     <div class="chakra"></div>
     <div>
-        <p class="title-text">Nyaya Setu</p>
+        <p class="title-text">Ordo Juris</p>
         <p class="subtitle-text">{t['subtitle']}</p>
     </div>
 </div>
@@ -272,27 +332,59 @@ with st.sidebar:
     for q in t["examples"]:
         if st.button(q, key=q):
             st.session_state.pending_query = q
+            st.session_state.active_tab = "chat"
 
     st.markdown("---")
     st.markdown(f"### {t['about_header']}")
     st.caption(t["about_text"])
 
-for msg in st.session_state.messages:
-    avatar = "🧑" if msg["role"] == "user" else "⚖️"
-    with st.chat_message(msg["role"], avatar=avatar):
-        st.markdown(msg["content"])
-        if msg["role"] == "assistant" and "sources" in msg:
-            badges = "".join(
-                f'<span class="seal-badge"><span class="seal-num">{s["clause"]}</span>{s["title"]}</span>'
-                for s in msg["sources"]
-            )
-            st.markdown(badges, unsafe_allow_html=True)
+# Custom tab switcher
+col_a, col_b, col_rest = st.columns([1.3, 1.3, 3])
+with col_a:
+    chat_type = "primary" if st.session_state.active_tab == "chat" else "secondary"
+    if st.button(t["tab_chat"], key="tab_btn_chat", type=chat_type):
+        st.session_state.active_tab = "chat"
+        st.rerun()
+with col_b:
+    analyzer_type = "primary" if st.session_state.active_tab == "analyzer" else "secondary"
+    if st.button(t["tab_analyzer"], key="tab_btn_analyzer", type=analyzer_type):
+        st.session_state.active_tab = "analyzer"
+        st.rerun()
 
+st.markdown("<div style='border-bottom: 1px solid var(--border); margin-bottom: 1rem;'></div>", unsafe_allow_html=True)
+
+if st.session_state.active_tab == "chat":
+    for msg in st.session_state.messages:
+        avatar = "🧑" if msg["role"] == "user" else "⚖️"
+        with st.chat_message(msg["role"], avatar=avatar):
+            st.markdown(msg["content"])
+            if msg["role"] == "assistant" and "sources" in msg:
+                badges = "".join(
+                    f'<span class="seal-badge"><span class="seal-num">{s["clause"]}</span>{s["title"]}</span>'
+                    for s in msg["sources"]
+                )
+                st.markdown(badges, unsafe_allow_html=True)
+else:
+    uploaded_file = st.file_uploader(t["upload_label"], type=["pdf"], help=t["upload_help"])
+    if st.button(t["analyze_button"]):
+        if uploaded_file is None:
+            st.warning(t["no_file_warning"])
+        else:
+            with st.spinner(t["analyzing_spinner"]):
+                doc_text = extract_text_from_pdf(uploaded_file)
+                if not doc_text or len(doc_text.strip()) < 20:
+                    st.error(t["extract_fail"])
+                else:
+                    analysis = analyze_document(doc_text, language=ui_language)
+                    st.markdown(analysis)
+
+# Chat input kept at top level so it stays pinned to the bottom of the page
 typed_query = st.chat_input(t["input_placeholder"])
 query = st.session_state.pending_query or typed_query
 st.session_state.pending_query = None
 
 if query:
+    st.session_state.active_tab = "chat"
     st.session_state.messages.append({"role": "user", "content": query})
     with st.chat_message("user", avatar="🧑"):
         st.markdown(query)
@@ -308,3 +400,4 @@ if query:
             st.markdown(badges, unsafe_allow_html=True)
 
     st.session_state.messages.append({"role": "assistant", "content": answer, "sources": sources})
+    st.rerun()

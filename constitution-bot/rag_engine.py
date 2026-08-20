@@ -85,3 +85,39 @@ if __name__ == "__main__":
     print("\nSOURCES USED:")
     for s in sources:
         print(f"- Clause {s['clause']}: {s['title']}")
+
+
+def analyze_document(document_text, language="English"):
+    """Analyze an uploaded legal document and extract key info + next steps."""
+    max_chars = 12000
+    truncated = document_text[:max_chars]
+    truncation_note = "\n\n[Note: document was truncated for analysis due to length.]" if len(document_text) > max_chars else ""
+
+    system_prompt = """You are a legal document analysis assistant for India. A user has uploaded a legal document (e.g. notice, contract, FIR copy, court order, agreement).
+Analyze it and provide:
+1. **Document Type** - what kind of document this appears to be
+2. **Key Information** - important names, dates, deadlines, amounts, and obligations mentioned
+3. **Plain-Language Summary** - what this document means in simple terms
+4. **Recommended Next Steps** - concrete, practical actions the person should consider taking, including whether they should consult a lawyer urgently
+
+Be factual and only summarize what is actually in the document - do not invent details. If the document is unclear, low quality, or not actually a legal document, say so honestly.
+This is informational only and not a substitute for professional legal advice - make this clear in your next steps section."""
+
+    if language == "Hindi":
+        system_prompt += "\n\nRespond entirely in Hindi (Devanagari script)."
+
+    user_prompt = f"""Document text:
+{truncated}{truncation_note}
+
+Analyze this document."""
+
+    response = groq_client.chat.completions.create(
+        model="openai/gpt-oss-120b",
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ],
+        temperature=0.3,
+    )
+
+    return response.choices[0].message.content
