@@ -9,9 +9,11 @@ import os
 
 load_dotenv()
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 embed_model = SentenceTransformer("all-MiniLM-L6-v2")
-index = faiss.read_index("articles.index")
-with open("articles_meta.pkl", "rb") as f:
+index = faiss.read_index(os.path.join(BASE_DIR, "articles.index"))
+with open(os.path.join(BASE_DIR, "articles_meta.pkl"), "rb") as f:
     articles = pickle.load(f)
 
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
