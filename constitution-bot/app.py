@@ -6,6 +6,15 @@ from emergency_mode import render_emergency_button, render_emergency_mode
 
 st.set_page_config(page_title="Ordo Juris", page_icon="⚖️", layout="wide")
 
+st.markdown("""
+<link rel="manifest" href="/app/static/manifest.json">
+<meta name="theme-color" content="#6B4226">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ordo Juris">
+<link rel="apple-touch-icon" href="/app/static/icon-192.png">
+""", unsafe_allow_html=True)
+
 TEXT = {
     "English": {
         "subtitle": "Constitutional Awareness & Legal Aid, grounded in the Constitution of India",
