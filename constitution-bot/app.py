@@ -1,6 +1,7 @@
 import streamlit as st
 from rag_engine import answer_question, analyze_document
 from pdf_utils import extract_text_from_pdf
+from emergency_mode import render_emergency_button, render_emergency_mode
 
 st.set_page_config(page_title="Ordo Juris", page_icon="⚖️", layout="wide")
 
@@ -157,10 +158,17 @@ html, body, .stApp,
 .seal-num {
     background: var(--brown);
     color: var(--surface);
-    border-radius: 50%;
-    width: 20px; height: 20px;
+    border-radius: 999px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
     display: inline-flex; align-items: center; justify-content: center;
     font-size: 0.68rem; font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.seal-badge {
+    flex-wrap: nowrap;
 }
 
 [data-testid="stSidebar"] .stButton > button {
@@ -262,6 +270,99 @@ div[data-testid="stMainBlockContainer"] button[data-testid="stBaseButton-seconda
 
 div[data-baseweb="radio"] label { color: var(--ink) !important; font-family: 'Inter', 'Noto Sans Devanagari', sans-serif !important; }
 
+/* Main content area — general text color for markdown, headers, lists (covers emergency mode etc.) */
+[data-testid="stMainBlockContainer"] h1,
+[data-testid="stMainBlockContainer"] h2,
+[data-testid="stMainBlockContainer"] h3,
+[data-testid="stMainBlockContainer"] h4,
+[data-testid="stMainBlockContainer"] h5,
+[data-testid="stMainBlockContainer"] p,
+[data-testid="stMainBlockContainer"] li,
+[data-testid="stMainBlockContainer"] span,
+[data-testid="stMainBlockContainer"] strong,
+[data-testid="stMainBlockContainer"] em,
+[data-testid="stMainBlockContainer"] label,
+[data-testid="stMainBlockContainer"] .stMarkdown,
+[data-testid="stMainBlockContainer"] [data-testid="stMarkdownContainer"] {
+    color: var(--ink) !important;
+}
+[data-testid="stMainBlockContainer"] .stCaption,
+[data-testid="stMainBlockContainer"] [data-testid="stCaptionContainer"] p {
+    color: var(--ink-muted) !important;
+}
+/* st.info box styling */
+[data-testid="stMainBlockContainer"] [data-testid="stAlert"] {
+    background: var(--surface-alt) !important;
+    border: 1px solid var(--border) !important;
+}
+[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p,
+[data-testid="stMainBlockContainer"] [data-testid="stAlert"] span {
+    color: var(--ink) !important;
+}
+/* Text input fields (used in emergency fallback/followup forms) */
+[data-testid="stMainBlockContainer"] input[type="text"] {
+    background: var(--surface) !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--border) !important;
+}
+
+/* Main content area — general text color for markdown, headers, lists (covers emergency mode etc.) */
+[data-testid="stMainBlockContainer"] h1,
+[data-testid="stMainBlockContainer"] h2,
+[data-testid="stMainBlockContainer"] h3,
+[data-testid="stMainBlockContainer"] h4,
+[data-testid="stMainBlockContainer"] h5,
+[data-testid="stMainBlockContainer"] p,
+[data-testid="stMainBlockContainer"] li,
+[data-testid="stMainBlockContainer"] span,
+[data-testid="stMainBlockContainer"] strong,
+[data-testid="stMainBlockContainer"] em,
+[data-testid="stMainBlockContainer"] label,
+[data-testid="stMainBlockContainer"] .stMarkdown,
+[data-testid="stMainBlockContainer"] [data-testid="stMarkdownContainer"] {
+    color: var(--ink) !important;
+}
+[data-testid="stMainBlockContainer"] .stCaption,
+[data-testid="stMainBlockContainer"] [data-testid="stCaptionContainer"] p {
+    color: var(--ink-muted) !important;
+}
+/* st.info box styling */
+[data-testid="stMainBlockContainer"] [data-testid="stAlert"] {
+    background: var(--surface-alt) !important;
+    border: 1px solid var(--border) !important;
+}
+[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p,
+[data-testid="stMainBlockContainer"] [data-testid="stAlert"] span {
+    color: var(--ink) !important;
+}
+/* Text input fields (used in emergency fallback/followup forms) */
+[data-testid="stMainBlockContainer"] input[type="text"] {
+    background: var(--surface) !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--border) !important;
+}
+
+/* Form submit buttons (e.g. emergency mode follow-up forms) */
+[data-testid="stFormSubmitButton"] button {
+    background: transparent !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    color: var(--ink) !important;
+    font-family: 'Inter', 'Noto Sans Devanagari', sans-serif !important;
+}
+[data-testid="stFormSubmitButton"] button p,
+[data-testid="stFormSubmitButton"] button span,
+[data-testid="stFormSubmitButton"] button div {
+    color: var(--ink) !important;
+}
+[data-testid="stFormSubmitButton"] button:hover {
+    border-color: var(--brown) !important;
+    color: var(--brown) !important;
+}
+[data-testid="stFormSubmitButton"] button:hover p {
+    color: var(--brown) !important;
+}
+
 footer, #MainMenu { visibility: hidden; }
 
 [data-testid="stSidebarCollapseButton"] span,
@@ -307,6 +408,10 @@ with st.sidebar:
 
 t = TEXT[ui_language]
 
+if st.session_state.get("emergency_active"):
+    render_emergency_mode(language=ui_language)
+    st.stop()
+
 st.markdown(f"""
 <div class="header-wrap">
     <div class="chakra"></div>
@@ -337,6 +442,8 @@ with st.sidebar:
     st.markdown("---")
     st.markdown(f"### {t['about_header']}")
     st.caption(t["about_text"])
+
+    render_emergency_button(language=ui_language)
 
 # Custom tab switcher
 col_a, col_b, col_rest = st.columns([1.3, 1.3, 3])
@@ -380,7 +487,8 @@ else:
 
 # Chat input kept at top level so it stays pinned to the bottom of the page
 typed_query = st.chat_input(t["input_placeholder"])
-query = st.session_state.pending_query or typed_query
+prefill = st.session_state.pop("pending_prefill", None)
+query = prefill or st.session_state.pending_query or typed_query
 st.session_state.pending_query = None
 
 if query:
