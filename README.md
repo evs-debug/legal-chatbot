@@ -17,7 +17,11 @@ Live Demo: https://ordo-juris.streamlit.app/
 
 ## Screenshots
 
-Add screenshots here.
+![Screenshot 1](readme-images/screenshot-1.png)
+![Screenshot 2](readme-images/screenshot-2.png)
+![Screenshot 3](readme-images/screenshot-3.png)
+![Screenshot 4](readme-images/screenshot-4.png)
+![Screenshot 5](readme-images/screenshot-5.png)
 
 ## Tech Stack
 
