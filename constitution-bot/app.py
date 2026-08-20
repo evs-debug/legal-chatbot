@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 from rag_engine import answer_question, analyze_document
 from pdf_utils import extract_text_from_pdf
 from emergency_mode import render_emergency_button, render_emergency_mode
