@@ -51,16 +51,37 @@ If landmark case law is provided in the context and is directly relevant, cite i
 If the context does not contain enough information to answer confidently, state this explicitly and recommend consultation with a qualified legal professional. Do not fabricate legal information or case citations."""
 }
 
-def answer_question(query, mode="simple", language="English"):
-    results = retrieve(query, top_k=4)
+def build_history_text(chat_history):
+    if not chat_history:
+        return ""
+    recent = chat_history[-6:]
+    lines = []
+    for msg in recent:
+        role = "User" if msg["role"] == "user" else "Assistant"
+        lines.append(f"{role}: {msg['content']}")
+    return "\n".join(lines)
+
+
+def answer_question(query, mode="simple", language="English", chat_history=None):
+    search_query = query
+    if chat_history:
+        last_user_msgs = [m["content"] for m in chat_history[-4:] if m["role"] == "user"]
+        if last_user_msgs:
+            search_query = " ".join(last_user_msgs[-1:] + [query])
+
+    results = retrieve(search_query, top_k=4)
     context = build_context(results)
 
     system_prompt = SYSTEM_PROMPTS.get(mode, SYSTEM_PROMPTS["simple"])
+    system_prompt += "\n\nIf the user's question refers back to something discussed earlier in the conversation (e.g. 'what about as a minor', 'and if it's non-bailable'), use the conversation history provided to understand what they're referring to, while still grounding your legal answer in the retrieved context below."
 
     if language == "Hindi":
         system_prompt += "\n\nRespond entirely in Hindi (Devanagari script), including all explanations. Keep clause numbers and article numbers in their original English/numeric form (e.g. 'Clause 22(1)'), since these are standard legal references, but everything else must be in Hindi."
 
-    user_prompt = f"""Context (relevant constitutional provisions):
+    history_text = build_history_text(chat_history)
+    history_block = f"Recent conversation:\n{history_text}\n\n" if history_text else ""
+
+    user_prompt = f"""{history_block}Context (relevant constitutional provisions):
 {context}
 
 Question: {query}

@@ -502,6 +502,7 @@ query = prefill or st.session_state.pending_query or typed_query
 st.session_state.pending_query = None
 
 if query:
+    prior_history = list(st.session_state.messages)
     st.session_state.active_tab = "chat"
     st.session_state.messages.append({"role": "user", "content": query})
     with st.chat_message("user", avatar="🧑"):
@@ -509,7 +510,7 @@ if query:
 
     with st.chat_message("assistant", avatar="⚖️"):
         with st.spinner(t["spinner"]):
-            answer, sources = answer_question(query, mode=mode, language=ui_language)
+            answer, sources = answer_question(query, mode=mode, language=ui_language, chat_history=prior_history)
             st.markdown(answer)
             badges = "".join(
                 f'<span class="seal-badge"><span class="seal-num">{s["clause"]}</span>{s["title"]}</span>'
